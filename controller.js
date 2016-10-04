@@ -1,6 +1,6 @@
 $(document).ready(()=>{
        var playerService = new PlayerService();
-    playerService.loadJSON("http://api.cbssports.com/fantasy/players/list?version=3.0&SPORT=football&response_format=json",(data)=>{})
+    playerService.loadJSON("https://api.cbssports.com/fantasy/players/list?version=3.0&SPORT=football&response_format=json",(data)=>{})
     playerService.getMyPlayers()
     console.log(playerService.getNflPlayers())
     console.log(playerService.getPlayersDictionary().id['TWpVMk56SXhPVGsxTXpBeE5UazBORFEyTWpJd01EVTJPRGc0Tl'])
