@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous'>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+     <link href="https://fonts.googleapis.com/css?family=Graduate|Lobster|UnifrakturMaguntia" rel="stylesheet">
+    <script   src='https://code.jquery.com/jquery-3.1.1.min.js'   integrity='sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8='   crossorigin='anonymous'></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://mccallofthewild.github.io/assets-reloader/reload.min.js" instuctions='reload CSS = ( . + c ); reload JavaScript = ( . + s ); reload JS & CSS = ( . + a ); reload entire page = ( . + r );'></script>
+    <link href='bundle.css' rel='stylesheet'>
+    <script src='service.js'></script>
+    <script src="controller.js"></script>
+</head>
+    <body>
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <a href="#" class="navbar-brand"><i class="fa fa-trophy"></i> Turf Camelot</a>
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4 col-md-offset-1">
+                    <div class="navbar-collapse collapse" id="navbar" aria-expanded="false">
+                        <ul class="nav navbar-nav ">
+                            <li class="active nav-link-search"><a href="#"><i class="fa fa-users"></i> Search NFL</a></li>
+                            <li class="nav-link-roster"><a href="#"><i class="fa fa-sitemap"></i> Profile</a></li>
+                        </ul>
+                    </div>
+                    </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-8 col-xs-offset-2 search-page">
+                    <div class="panel">
+                        <div class="panel-body">
+                            <form action="" class="search-form">
+                                <div class="form-group">
+                                <!--<label><i class="fa fa-search"></i></label>-->
+                                <input type="text" class="form-control" id="player-name-id" name="player-name" placeholder="Search By Name, Position, Jersey, Team, and/or id">
+                                </div>
+                                <div class="form-group form-inline">
+                                <button type="submit" class="btn btn-primary">Search Players</button>
+                                </div>
+                            </form>
+                            </div>
+                        </div>
+                        <div class="flex-area insert-nfl-area">
+
+                        </div>
+                    </div>
+                    <div class="col-xs-8 col-xs-offset-2 profile-page" style="display:none;" >
+                        <div class="panel">
+                            <div class="panel-body">
+                                <h3>My Team</h3>
+                            </div>
+                        </div>
+                    <div class="flex-area insert-my-players-area">
+                        <div class="player-info">
+            <div class="panel player-panel">
+                <div class="panel-heading">
+                    <h3><small>Jahleel</small><br>Addae</h3>
+                    <h3 class="text-right"><button class="btn btn-primary add-btn" playerid="TXpVME1qY3dNVE14TkRnNU1qSTRPVFl6T1RJNE1UTXdNRGd4TW"><i class="fa fa-plus"></i></button></h3>
+                </div>
+                <div class="panel-body">
+                    <div class="thumbnail-image-container">
+                        <img src="http://sports.cbsimg.net/images/football/nfl/players/170x170/2062178.png" alt="">
+                    </div>
+                    <table class="table">
+                        <tbody><tr>
+                            <td>Position:</td>
+                            <td>Defensive Back</td>
+                        </tr>
+                        <tr>
+                            <td>Jersey No.:</td>
+                            <td>#37</td>
+                        </tr>
+                        <tr>
+                            <td>Team:</td>
+                            <td>San Diego Chargers</td>
+                        </tr>
+                    </tbody></table>
+                </div>
+            </div>
+        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+</body>
+</html>
