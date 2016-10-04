@@ -65,7 +65,7 @@ $(document).ready(()=>{
                 </div>
                 <div class="panel-body">
                     <div class='thumbnail-image-container'>
-                        <img src="${player.photo}" alt="">
+                        <img src="${player.photo.replace("http", "https")}" alt="">
                     </div>
                     <table class="table">
                         <tr>
