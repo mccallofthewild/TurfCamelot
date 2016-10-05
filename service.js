@@ -1,12 +1,14 @@
-function PlayerService(callback, params){
-        var _myPlayers = {};
+function PlayerService(_savedPlayers, SessionService){
+        var _myPlayers = _savedPlayers || {};
         var _playersDictionary = {};
         var _nflPlayers = {};
+        var sessionService = SessionService
     this.loadJSON = (URI, callback)=>{
         var debugFlag;
         try{
             var localData = localStorage.getItem('_nflJSON');
-            if(localData){
+            function parseData(){
+                var localData = localStorage.getItem('_nflJSON');
                 var tempPlayers = JSON.parse(localData);
                 console.log(tempPlayers.splice(0, 20))
                 for(var i = 0; i<tempPlayers.length; i++){
@@ -19,18 +21,23 @@ function PlayerService(callback, params){
                 callback(_nflPlayers)
                 return;
             }
-            var bcwProxy = "https://bcw-getter.herokuapp.com/?url=";
-            var pullURL = bcwProxy + encodeURIComponent(URI);
-            $.getJSON(pullURL, (data)=>{
-                _nflPlayers = data.body.players;
-                if(debugFlag){
-                    console.log("Player Data Ready");
-                    console.log("Writing Player Data to local  storage...");
-                }
-                localStorage.setItem("_nflJSON", JSON.stringify(_myPlayers));
-                if(debugFlag){console.log("completed writing player data to local storage!");}
-                callback(_nflPlayers);
-            })
+            if(localData){
+                parseData();
+            }else{
+                var bcwProxy = "https://bcw-getter.herokuapp.com/?url=";
+                var pullURL = bcwProxy + encodeURIComponent(URI);
+                $.getJSON(pullURL, (data)=>{
+                    var toBeStored = data.body.players
+                    if(debugFlag){
+                        console.log("Player Data Ready");
+                        console.log("Writing Player Data to local  storage...");
+                    }
+                    localStorage.setItem("_nflJSON", JSON.stringify(toBeStored));
+                    if(debugFlag){console.log("completed writing player data to local storage!");}
+                    callback(toBeStored);
+                    parseData()
+                })
+            }
         }
         catch(error){
             console.log(error);
@@ -74,10 +81,15 @@ function PlayerService(callback, params){
     }
     this.createPlayer = (player)=>{
         player.onMyTeam = true;
-        _myPlayers[player.id] = [player];
+        _myPlayers[player.elias_id] = [player];
+        sessionService.updateData(_myPlayers)
+        
     }
     this.destroyPlayer = (player)=>{
-        delete _myPlayers[player.id];
+        delete _myPlayers[player.elias_id];
+        console.log(_myPlayers[player.elias_id])
+        sessionService.updateData(_myPlayers);
+        console.log("removing player forevverrr")
     }
     this.getMyPlayers = ()=>{
         return _myPlayers
