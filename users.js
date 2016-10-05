@@ -124,7 +124,7 @@ function SessionsController(){
         var userData = DBJSON.userDataTable[key].players;
         console.log(DBJSON.userDataTable[key])
         PlayerController(userData, sessionService);
-        $.get('/_userSession.html', (data)=>{
+        $.get('/TurfCamelot/_userSession.html', (data)=>{
             $('body').html(data)
         });
     }else{
@@ -135,7 +135,7 @@ function SessionsController(){
     var self = this;
     
     function loginPage(){
-        $.get('/_login.html', (data)=>{
+        $.get('/TurfCamelot/_login.html', (data)=>{
             $('body').html(data)
         });
     }

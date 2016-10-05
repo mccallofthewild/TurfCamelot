@@ -2,7 +2,7 @@
 function PlayerController(_savedPlayers, sessionService){
 
     var playerService = new PlayerService(_savedPlayers, sessionService);
-    $.get('/_userSession.html', (data)=>{
+    $.get('/TurfCamelot/_userSession.html', (data)=>{
         $('body').html(data)
     });
     playerService.loadJSON("http://api.cbssports.com/fantasy/players/list?version=3.0&SPORT=football&response_format=json", (data)=>{console.log(data)})
