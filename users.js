@@ -113,7 +113,7 @@ function SessionsController(){
     var sessionService = new SessionsService();
     var sessionString = sessionStorage.getItem('_turfCamelotUserSession');
     if(sessionString){
-        sessionJSON = JSON.parse(sessionString);
+        var sessionJSON = JSON.parse(sessionString);
         var key = sessionJSON.key
 
         var DBString = localStorage.getItem('_turfCamelotDB');
